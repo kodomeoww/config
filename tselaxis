@@ -1,0 +1,1047 @@
+# Anda menggunakan akun GRATIS
+# Gass PREMIUM 10rb/device aktif 1 bulan,2 device 15rb
+# ==== Paket ILMUPEDIA ======
+# Buy paket TSEL dial *363*844# / *363*555#
+#===========================================
+mode: rule
+allow-lan: true
+unified-delay: true
+bind-address: '*'
+log-level: silent
+ipv6: false
+geodata-mode: true
+external-controller: 0.0.0.0:9090
+external-ui: dashboard/dist
+tcp-concurrent: true
+interface-name: ""
+enable-process: false
+geodata-loader: memconservative
+inbound-tfo: true
+secret: ""
+# geox-url: {mmdb: "https://cdn.jsdelivr.net/gh/Dreamacro/maxmind-geoip@release/Country.mmdb",geoip: "https://github.com/v2fly/geoip/releases/latest/download/geoip-only-cn-private.dat",geosite: "https://github.com/taamarin/v2ray-rules-dat/raw/release/GeoSite.dat"}
+profile:
+  store-selected: true
+  store-fake-ip: false
+experimental: {
+    sniff-tls-sni: false,
+    fingerprint: ""
+}
+sniffer:
+  enable: false
+  sniffing:
+    - tls
+    - http
+  force-domain:
+    - '+'
+  skip-domain: 
+    - '+.google.com'
+  port-whitelist:
+    - 443
+    - 80
+hosts: {
+  "cacerts.digicert.com": "104.21.21.147",
+  "ota.googlezip.net": "127.0.0.1",
+  "ota-cache1.googlezip.net": "127.0.0.1",
+  "ota-cache2.googlezip.net": "127.0.0.1"
+}
+tun:
+  enable: false
+  device: Meta
+  stack: system
+  dns-hijack:
+    - any:53
+  auto-route: false
+  auto-detect-interface: false
+dns:
+  enable: true
+  ipv6: true
+  prefer-h3: false
+  default-nameserver:
+    - 94.140.14.14
+  listen: 0.0.0.0:1053
+  use-hosts: true
+  enhanced-mode: fake-ip
+  fake-ip-range: 28.0.0.1/8
+  fake-ip-filter: [
+    "*.local",
+    "*.localhost",
+  ]
+  nameserver:
+    - 94.140.14.14
+  fallback: []
+  fallback-filter:
+    geoip: false
+    geoip-code: "!ID"
+    geosite: [GFW]
+    ipcidr: []
+    domain: ['+.google.com','+.facebook.com','+.youtube.com']
+tproxy-port: 9898
+mixed-port: 7890
+# ================= PG ==========
+proxies: 
+  - name: INDOXRAY 443
+    server: 104.17.3.81
+    port: 443
+    type: vmess
+    uuid: b809ba19-00e2-483d-b1bc-bd7633a678ff
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: indoxray.me
+    network: ws
+    ws-opts:
+      path: /vmess
+      headers:
+        Host: indoxray.me
+    udp: true
+
+  - name: INDOXRAY NTLS
+    server: 104.17.3.81
+    port: 80
+    type: vmess
+    uuid: b809ba19-00e2-483d-b1bc-bd7633a678ff
+    alterId: 0
+    cipher: auto
+    tls: false
+    skip-cert-verify: true
+    servername: indoxray.me
+    network: ws
+    ws-opts:
+      path: /vmess
+      headers:
+        Host: indoxray.me
+    udp: true
+
+  - name: INDOXRAY GRPC
+    server: 104.18.3.2
+    port: 443
+    type: vmess
+    uuid: 9a6c6630-64ee-11ef-8ad7-1239d0255272
+    alterId: 0
+    cipher: auto
+    network: grpc
+    tls: true
+    servername: sg3.socifiles.com
+    skip-cert-verify: true
+    grpc-opts:
+      grpc-service-name: vmgrpc
+
+  - name: IDL TLS
+    server: 104.17.3.81
+    port: 443
+    type: vmess
+    uuid: cedf07b8-2f39-4c29-828d-c5f1911573e1
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: vvipp.klmpk.me
+    network: ws
+    ws-opts:
+      path: /vmess
+      headers:
+        Host: vvipp.klmpk.me
+    udp: true
+
+  - name: IDL NTLS
+    server: 104.17.3.81
+    port: 80
+    type: vmess
+    uuid: cedf07b8-2f39-4c29-828d-c5f1911573e1
+    alterId: 0
+    cipher: auto
+    tls: false
+    skip-cert-verify: true
+    servername: vvipp.klmpk.me
+    network: ws
+    ws-opts:
+      path: /vmess
+      headers:
+        Host: vvipp.klmpk.me
+    udp: true
+
+  - name: VLESS ARIS CF
+    server: 104.17.3.81
+    port: 443
+    type: vless
+    uuid: 1b6c1745-992e-4aac-8685-266c090e50ea
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: server.arisctunnel.me
+    network: ws
+    ws-opts:
+      path: /?ed=2048
+      headers:
+        Host: server.arisctunnel.me
+    udp: true
+    
+
+  - name: WORKER GAME
+    server: 104.17.3.81
+    port: 443
+    type: vless
+    uuid: 1e6611ce-aec7-4a64-8699-d7d731659f05
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: NS-stoRE.NSiDIK685.WorkerS.DEV
+    network: ws
+    ws-opts:
+      path: /4oZzyMSMxWn395MA/dGVuY2VudC5yaW4tdG9oc2FrYWdhbmdiYW5nLmZpbGVnZWFyLXNnLm1l?ed=2560
+      headers:
+        Host: Ns-stOrE.NSIDIk685.WORkeRs.DEv
+    udp: true
+
+  - name: UWU FF
+    server: 104.17.3.81
+    port: 443
+    type: vless
+    uuid: bcf50589-9654-4331-93a6-da896914ec47
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: de4ecf6b.isvphp-4g8.pages.dev
+    network: ws
+    ws-opts:
+      path: /?ed=2048
+      headers:
+        Host: de4ecf6b.isvphp-4g8.pages.dev
+    udp: true
+
+  - name: VLESS KNC 443
+    server: 104.17.3.81
+    port: 443
+    type: vless
+    uuid: 80510fd1-7a7d-4b83-a3db-05fb7f23dea5
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: id.knc.my.id
+    network: ws
+    ws-opts:
+      path: /?ed=2048
+      headers:
+        Host: id.knc.my.id
+    udp: true
+
+  - name: VLESS KNC2 443
+    server: 104.17.3.81
+    port: 443
+    type: vless
+    uuid: 80510fd1-7a7d-4b83-a3db-05fb7f23dea5
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: id2.knc.my.id
+    network: ws
+    ws-opts:
+      path: /?ed=2048
+      headers:
+        Host: id2.knc.my.id
+    udp: true
+
+  - name: VLESS KNC KR 443
+    server: 104.17.3.81
+    port: 443
+    type: vless
+    uuid: 4994c6a3-3242-45b8-a3e3-7d0fb82b0ece
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: kr.free.knc.my.id
+    network: ws
+    ws-opts:
+      path: /?ed=2048
+      headers:
+        Host: kr.free.knc.my.id
+    udp: true
+
+  - name: VLESS DO 443
+    server: 104.17.3.81
+    port: 443
+    type: vless
+    uuid: b0cb1b0b-f5ba-4ca4-a587-cfe48126bff7
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: sgdo1.aframdani.cloud
+    network: ws
+    ws-opts:
+      path: /vless-ws
+      headers:
+        Host: sgdo1.aframdani.cloud
+    udp: true 
+    
+  - name: TROJAN TARIK
+    server: 104.17.3.81
+    port: 443
+    type: trojan
+    password: 38460e7d-95bb-49e5-a90b-519ff74f182d
+    skip-cert-verify: true
+    sni: l5mrh.tarik.my.id
+    network: ws
+    ws-opts:
+      path: /whatever/trojan-ws
+      headers:
+        Host: l5mrh.tarik.my.id
+    udp: true
+    
+  - name: VLESS ID MAHAL
+    server: 104.17.3.81
+    port: 443
+    type: vless
+    uuid: 6e6cb97e-57ac-4e8f-ad90-2b2fbb21bc45
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: id.jam.mahal.filegear-sg.me
+    network: ws
+    ws-opts:
+      path: /vless
+      headers:
+        Host: id.jam.mahal.filegear-sg.me
+    udp: true
+    
+  - name: VLESS ORACLE MAHAL
+    server: 104.17.3.81
+    port: 443
+    type: vless
+    uuid: 6e6cb97e-57ac-4e8f-ad90-2b2fbb21bc45
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: oracle.jam.mahal.filegear-sg.me
+    network: ws
+    ws-opts:
+      path: /vless
+      headers:
+        Host: oracle.jam.mahal.filegear-sg.me
+    udp: true
+
+  - name: VLESS ALIBABA MAHAL
+    server: 104.17.3.81
+    port: 443
+    type: vless
+    uuid: 6e6cb97e-57ac-4e8f-ad90-2b2fbb21bc45
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: alibaba.jam.mahal.filegear-sg.me
+    network: ws
+    ws-opts:
+      path: /vless
+      headers:
+        Host: alibaba.jam.mahal.filegear-sg.me
+    udp: true
+
+  - name: VLESS SG SERVLESS
+    server: 104.17.3.81
+    port: 443
+    type: vless
+    uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: sg.servless.us.to
+    network: ws
+    ws-opts:
+      path: /vlesscf
+      headers:
+        Host: sg.servless.us.to
+    udp: true
+
+  - name: VLESS ID SERVLESS
+    server: 104.17.3.81
+    port: 443
+    type: vless
+    uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: id.servless.us.to
+    network: ws
+    ws-opts:
+      path: /vlesscf
+      headers:
+        Host: id.servless.us.to
+    udp: true
+
+  - name: VLESS ID VLCFPAGE
+    server: 104.17.3.81
+    port: 443
+    type: vless
+    uuid: 0bc51b14-02aa-40db-aeba-8a9569a7244d
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: id.vlcfpages.my.id
+    network: ws
+    ws-opts:
+      path: /?ed=2048
+      headers:
+        Host: id.vlcfpages.my.id
+    udp: true
+
+  - name: VLESS SG VLCFPAGE
+    server: 104.17.3.81
+    port: 443
+    type: vless
+    uuid: f69a85fe-4a6e-40f3-bcd0-f3c800388b58
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: sg.vlcfpages.my.id
+    network: ws
+    ws-opts:
+      path: /?ed=2048
+      headers:
+        Host: sg.vlcfpages.my.id
+    udp: true
+
+  - name: VLESS SG ALIBABA 235
+    server: 104.17.3.81
+    port: 443
+    type: vless
+    uuid: 89b2cbba-e6ac-487a-9481-976a0415eab9
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: EsETSecURityLIcensE.vUhbGOL.wORkERs.dEV
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        Host: EsETSecURityLIcensE.vUhbGOL.wORkERs.dEV
+    udp: true
+
+  - name: VLESS SG ALIBABA 400
+    server: 104.17.3.81
+    port: 443
+    type: vless
+    uuid: 34b3cbba-e6ac-495a-9481-976a0419eab9
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: EseTSeCURITylICense.pudmnquF.worKErS.dev
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        Host: EseTSeCURITylICense.pudmnquF.worKErS.dev
+    udp: true
+
+  - name: VLESS SG ALIBABA 262
+    server: 104.17.3.81
+    port: 443
+    type: vless
+    uuid: 89b3cbba-e6ac-485a-9481-976a0415eab9
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: miumiUMadReKoSE.pAgES.dEv
+    network: ws
+    ws-opts:
+      path: /oyafdnkpgfcx0bjg?ed
+      headers:
+        Host: miumiUMadReKoSE.pAgES.dEv
+    udp: true
+
+  - name: VLESS SG ALIBABA 502
+    server: 104.17.3.81
+    port: 443
+    type: vless
+    uuid: e4e7b149-8bd8-4266-8cbb-0987604dbc87
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: toujiediansigema.5112233.xyz
+    network: ws
+    ws-opts:
+      path: /TG@juzibaipiao偷节点死吗
+      headers:
+        Host: toujiediansigema.5112233.xyz
+    udp: true
+
+  - name: VLESS SG ALIBABA 619
+    server: 104.17.3.81
+    port: 443
+    type: vless
+    uuid: 89b3cbba-e6ac-485a-9481-976a0415eab9
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: V2FiVeTeL.pAges.Dev
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        Host: V2FiVeTeL.pAges.Dev
+    udp: true
+
+  - name: VLESS SG ALIBABA 457
+    server: 104.17.3.81
+    port: 443
+    type: vless
+    uuid: a64f0cea-ca89-40e6-b316-b3badff1eb90
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: iSAA1.paGEs.DEV
+    network: ws
+    ws-opts:
+      path: /BDwnEtVwG7BS0S9f?ed
+      headers:
+        Host: iSAA1.paGEs.DEV
+    udp: true
+
+  - name: VLESS SG ALIBABA 189
+    server: 104.17.3.81
+    port: 443
+    type: vless
+    uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: xn--4s9h.pages.dev
+    network: ws
+    ws-opts:
+      path: /?ed
+      headers:
+        Host: pages.dev.
+    udp: true
+
+  - name: VLESS SG ALIBABA TLS
+    server: 104.17.3.81
+    port: 443
+    type: vless
+    uuid: f9021b31-e8bd-4b4d-a1d3-c9b0c1476c44
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: sg-alibaba.tingkehvpn.my.id
+    network: ws
+    ws-opts:
+      path: /vlesscf
+      headers:
+        Host: sg-alibaba.tingkehvpn.my.id
+    udp: true
+
+  - name: VLESS SG ALIBABA NTLS
+    server: 104.17.3.81
+    port: 80
+    type: vless
+    uuid: f9021b31-e8bd-4b4d-a1d3-c9b0c1476c44
+    alterId: 0
+    cipher: auto
+    tls: false
+    skip-cert-verify: true
+    servername: sg-alibaba.tingkehvpn.my.id
+    network: ws
+    ws-opts:
+      path: /vlesscf
+      headers:
+        Host: sg-alibaba.tingkehvpn.my.id
+    udp: true
+
+  - name: AXIS SUSHI
+    server: www.sushiroll.co.id
+    port: 443
+    type: vless
+    uuid: fd965d40-6a8a-11ef-8a57-1239d0255272
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: sg-alibaba.tingkehvpn.my.id
+    network: ws
+    ws-opts:
+      path: /vlesscf
+      headers:
+        Host: sg-alibaba.tingkehvpn.my.id
+    udp: true
+#🔴
+#🔴_____________________________________proxies______________________________________🔴
+#
+#🟡_________________________________PROXY-GROUP__________________________________🟡
+proxy-groups:
+# Global kita gunakan untuk koneksi UMUM
+- name: "Global✅"
+  type: url-test
+  strategy: round-robin
+  disable-udp: false
+  proxies:
+    -  INDOXRAY 443
+    -  INDOXRAY NTLS
+    -  INDOXRAY GRPC
+    -  IDL TLS
+    -  IDL NTLS
+    -  VLESS ARIS CF
+    -  WORKER GAME
+    -  UWU FF
+    -  VLESS KNC 443
+    -  VLESS KNC2 443
+    -  VLESS KNC KR 443
+    -  VLESS DO 443
+    -  TROJAN TARIK
+    -  VLESS ID MAHAL
+    -  VLESS ORACLE MAHAL
+    -  VLESS ALIBABA MAHAL
+    -  VLESS SG SERVLESS
+    -  VLESS ID SERVLESS
+    -  VLESS ID VLCFPAGE
+    -  VLESS SG VLCFPAGE
+    -  VLESS SG ALIBABA 235
+    -  VLESS SG ALIBABA 400
+    -  VLESS SG ALIBABA 262
+    -  VLESS SG ALIBABA 502
+    -  VLESS SG ALIBABA 619
+    -  VLESS SG ALIBABA 457
+    -  VLESS SG ALIBABA 189
+    -  VLESS SG ALIBABA TLS
+    -  VLESS SG ALIBABA NTLS
+    -  AXIS SUSHI
+  url: 'http://www.gstatic.com/generate_204'
+  interval: 300
+ #⬜⬜
+- name: "WHATSAPP"
+  type: select #PILIIH SALAH SATU : SELECT,LOAD-BALANCE,FALLBACK,URL-TEST
+  strategy: round-robin
+  disable-udp: false
+  proxies:
+    -  BEST PING
+    -  LOAD-BALANCE
+    -  FALLBACK
+    -  DIRECT
+  url: 'http://www.gstatic.com/generate_204'
+  interval: 300
+#⬜⬜
+#Koneksi Sosmed
+- name: "FACEBOOK"
+  type: select #PILIIH SALAH SATU : SELECT,LOAD-BALANCE,FALLBACK,URL-TEST
+  strategy: round-robin
+  disable-udp: false
+  proxies:
+    -  LOAD-BALANCE
+    -  BEST PING
+    -  FALLBACK
+    -  DIRECT
+  url: 'http://www.gstatic.com/generate_204'
+  interval: 300
+#Koneksi Sosmed
+- name: "RUANG GAME"
+  type: url-test #PILIIH SALAH SATU : SELECT,LOAD-BALANCE,FALLBACK,URL-TEST
+  strategy: round-robin
+  disable-udp: false
+  proxies:
+    -  VLESS KNC 443
+    -  VLESS KNC2 443
+    -  VLESS ID MAHAL
+    -  VLESS ID SERVLESS
+    -  VLESS ID VLCFPAGE
+  url: 'http://www.gstatic.com/generate_204'
+  interval: 300
+#Koneksi Sosmed
+- name: "PORT GAME"
+  type: select #PILIIH SALAH SATU : SELECT,LOAD-BALANCE,FALLBACK,URL-TEST
+  strategy: round-robin
+  disable-udp: false
+  proxies:
+    -  DIRECT
+    -  RUANG GAME
+    -  BEST PING
+  url: 'http://www.gstatic.com/generate_204'
+  interval: 300
+#⬜⬜
+#Koneksi Sosmed
+- name: "SOSMED"
+  type: select #PILIIH SALAH SATU : SELECT,LOAD-BALANCE,FALLBACK,URL-TEST
+  strategy: round-robin
+  disable-udp: false
+  proxies:
+    -  FALLBACK
+    -  BEST PING
+    -  LOAD-BALANCE
+    -  DIRECT
+  url: 'http://www.gstatic.com/generate_204'
+  interval: 300
+#⬜⬜
+#koneksi untuk YOUTUBE,
+- name: "YOUTUBE"
+  type: select
+  strategy: round-robin
+  disable-udp: false
+  proxies:
+    -  BEST PING
+    -  LOAD-BALANCE
+    -  FALLBACK
+    -  DIRECT
+    -  REJECT
+  url: 'http://www.gstatic.com/generate_204'
+  interval: 300
+ #⬜⬜
+#koneksi nonton video
+- name: "STREAMING"
+  type: select
+  strategy: round-robin
+  disable-udp: false
+  proxies:
+    -  BEST PING
+    -  LOAD-BALANCE
+    -  FALLBACK
+    -  DIRECT
+    -  REJECT
+  url: 'http://www.gstatic.com/generate_204'
+  interval: 300
+ #⬜⬜
+ #koneksi untuk Bank,
+- name: "AKUN BANK"
+  type: select
+  proxies:
+    -  RUANG GAME
+    -  BEST PING
+    -  LOAD-BALANCE
+    -  FALLBACK
+    -  DIRECT
+    -  REJECT
+  url: 'http://www.gstatic.com/generate_204'
+  interval: 300
+ #⬜⬜
+ #koneksi untuk BELANJA,
+- name: "MARKETPLACE"
+  type: select
+  proxies:
+    -  LOAD-BALANCE
+    -  BEST PING
+    -  FALLBACK
+    -  REJECT
+  url: 'http://www.gstatic.com/generate_204'
+  interval: 300
+ #⬜⬜
+ #koneksi untuk iklan,
+- name: "IKLAN"
+  type: select
+  proxies:
+    -  REJECT
+    -  BEST PING
+    -  LOAD-BALANCE
+    -  FALLBACK
+  url: 'http://www.gstatic.com/generate_204'
+  interval: 300
+ #⬜⬜
+   #koneksi untuk iklan,
+- name: "FALLBACK"
+  type: fallback
+  strategy: round-robin
+  disable-udp: false
+  proxies:
+    -  VLESS KNC 443
+    -  VLESS KNC2 443
+    -  VLESS DO 443
+    -  VLESS KNC KR 443
+    -  INDOXRAY 443
+    -  INDOXRAY NTLS
+    -  INDOXRAY GRPC
+    -  IDL TLS
+    -  IDL NTLS
+    -  VLESS ARIS CF
+    -  WORKER GAME
+    -  UWU FF
+    -  VLESS DO 443
+    -  TROJAN TARIK
+    -  VLESS ID MAHAL
+    -  VLESS ORACLE MAHAL
+    -  VLESS ALIBABA MAHAL
+    -  VLESS SG SERVLESS
+    -  VLESS ID SERVLESS
+    -  VLESS ID VLCFPAGE
+    -  VLESS SG VLCFPAGE
+    -  VLESS SG ALIBABA 235
+    -  VLESS SG ALIBABA 400
+    -  VLESS SG ALIBABA 262
+    -  VLESS SG ALIBABA 502
+    -  VLESS SG ALIBABA 619
+    -  VLESS SG ALIBABA 457
+    -  VLESS SG ALIBABA 189
+    -  VLESS SG ALIBABA TLS
+    -  VLESS SG ALIBABA NTLS
+  url: 'http://www.gstatic.com/generate_204'
+  interval: 300
+  #koneksi untuk iklan,
+- name: "BEST PING"
+  type: url-test
+  strategy: round-robin
+  disable-udp: false
+  proxies:
+    -  VLESS KNC 443
+    -  VLESS KNC2 443
+    -  VLESS KNC KR 443
+    -  VLESS DO 443
+    -  INDOXRAY 443
+    -  INDOXRAY NTLS
+    -  INDOXRAY GRPC
+    -  TROJAN TARIK
+    -  VLESS ID MAHAL
+    -  VLESS ORACLE MAHAL
+    -  VLESS ALIBABA MAHAL
+    -  VLESS SG SERVLESS
+    -  VLESS ID SERVLESS
+    -  VLESS ID VLCFPAGE
+    -  VLESS SG VLCFPAGE
+    -  VLESS SG ALIBABA 235
+    -  VLESS SG ALIBABA 400
+    -  VLESS SG ALIBABA 262
+    -  VLESS SG ALIBABA 502
+    -  VLESS SG ALIBABA 619
+    -  VLESS SG ALIBABA 457
+    -  VLESS SG ALIBABA 189
+    -  VLESS SG ALIBABA TLS
+    -  VLESS SG ALIBABA NTLS
+  url: 'http://www.gstatic.com/generate_204'
+  interval: 300
+ #⬜⬜
+   #koneksi untuk iklan,
+- name: "LOAD-BALANCE"
+  type: load-balance
+  strategy: round-robin
+  disable-udp: false
+  proxies:
+    -  IDL TLS
+    -  IDL NTLS
+    -  INDOXRAY 443
+    -  INDOXRAY NTLS
+    -  INDOXRAY GRPC
+    -  VLESS ARIS CF
+    -  WORKER GAME
+    -  UWU FF
+    -  VLESS KNC 443
+    -  VLESS KNC2 443
+    -  VLESS KNC KR 443
+    -  VLESS DO 443
+    -  TROJAN TARIK
+    -  VLESS ID MAHAL
+    -  VLESS ORACLE MAHAL
+    -  VLESS ALIBABA MAHAL
+    -  VLESS SG SERVLESS
+    -  VLESS ID SERVLESS
+    -  VLESS ID VLCFPAGE
+    -  VLESS SG VLCFPAGE
+    -  VLESS SG ALIBABA 235
+    -  VLESS SG ALIBABA 400
+    -  VLESS SG ALIBABA 262
+    -  VLESS SG ALIBABA 502
+    -  VLESS SG ALIBABA 619
+    -  VLESS SG ALIBABA 457
+    -  VLESS SG ALIBABA 189
+    -  VLESS SG ALIBABA TLS
+    -  VLESS SG ALIBABA NTLS
+  url: 'http://www.gstatic.com/generate_204'
+  interval: 300
+ #⬜⬜
+   #koneksi untuk iklan,
+#🟡_________________________________PROCY-GROUP__________________________________🟡
+# Clash for Windows
+cfw-bypass:
+  - qq.com
+  - music.163.com
+  - '*.music.126.net'
+  - localhost
+  - 127.*
+  - 10.*
+  - 172.16.*
+  - 172.17.*
+  - 172.18.*
+  - 172.19.*
+  - 172.20.*
+  - 172.21.*
+  - 172.22.*
+  - 172.23.*
+  - 172.24.*
+  - 172.25.*
+  - 172.26.*
+  - 172.27.*
+  - 172.28.*
+  - 172.29.*
+  - 172.30.*
+  - 172.31.*
+  - 192.168.*
+  - <local>
+cfw-latency-timeout: 5000
+
+rule-providers:
+  Portgames:
+    type: http
+    behavior: classical
+    path: "./rule_provider/portgames.yaml"
+    url: "https://raw.githubusercontent.com/ekosupry/CONFIG/main/portgame.yaml"
+  Gaming:
+    type: http
+    behavior: classical
+    path: "./rule_provider/gaming.yaml"
+    url: "https://raw.githubusercontent.com/ekosupry/CONFIG/main/gaming.yaml"
+  Game-TCP:
+    type: http
+    behavior: classical
+    path: "./rule_provider/gametcp.yaml"
+    url: "https://raw.githubusercontent.com/ekosupry/CONFIG/main/gametcp.yaml"
+  Sosmed:
+    type: http
+    behavior: classical
+    path: "./rule_provider/fl-sosmed.yaml"
+    url: "https://raw.githubusercontent.com/ekosupry/CONFIG/main/sosmed.yaml"
+  Nonton:
+    type: http
+    behavior: classical
+    path: "./rule_provider/fl-streaming.yaml"
+    url: "https://raw.githubusercontent.com/ekosupry/CONFIG/main/nonton.yaml"
+  YouTube:
+    type: http
+    behavior: domain
+    path: "./rule_provider/youtube.yaml"
+    url: "https://raw.githubusercontent.com/ekosupry/CONFIG/main/youtube.yaml"
+  WA:
+    type: http
+    behavior: classical
+    path: "./rule_provider/whatsapp.yaml"
+    url: "https://raw.githubusercontent.com/ekosupry/CONFIG/main/whatsapp.yaml"  
+  Facebook:
+    type: http
+    behavior: classical
+    path: "./rule_provider/wafb.yaml"
+    url: "https://raw.githubusercontent.com/ekosupry/CONFIG/main/facebook.yaml"  
+  Zero:
+    type: http
+    behavior: classical
+    path: "./rule_provider/zerotier.yaml"
+    url: "https://raw.githubusercontent.com/ekosupry/CONFIG/main/zerotier.yaml"
+#rulindo
+  Indo:
+    type: http
+    behavior: classical
+    path: "./rule_provider/indo.yaml"
+    url: "https://raw.githubusercontent.com/ekosupry/CONFIG/main/ruleindo.yaml"
+  Bank:
+    type: http
+    behavior: classical
+    path: "./rule_provider/banking.yaml"
+    url: "https://raw.githubusercontent.com/ekosupry/CONFIG/main/banking.yaml"
+  rule_disneyplus:
+    type: http
+    behavior: classical
+    path: "./rule_provider/rule_disneyplus.yaml"
+    url: "https://raw.githubusercontent.com/ekosupry/CONFIG/main/rule_disney.yaml"
+  rule_netflix:
+    type: http
+    behavior: domain
+    path: "./rule_provider/rule_netflix.yaml"
+    url: "https://raw.githubusercontent.com/ekosupry/CONFIG/main/rule_netflix.yaml"
+#iklan&18+
+  Nsfw:
+    type: http
+    behavior: domain
+    path: "./rule_provider/nsfw.yaml"
+    url: "https://raw.githubusercontent.com/ekosupry/CONFIG/main/nsfw.yaml"
+  18+:
+    type: http
+    behavior: domain
+    path: "./rule_provider/18+.yaml"
+    url: "https://raw.githubusercontent.com/ekosupry/CONFIG/main/porn1.yaml"
+  Basicads:
+    type: http
+    behavior: domain
+    path: "./rule_provider/basicads.yaml"
+    url: "https://raw.githubusercontent.com/ekosupry/CONFIG/main/basicads.yaml"
+  Personalads:
+    type: http
+    behavior: classical
+    path: "./rule_provider/personalads.yaml"
+    url: "https://raw.githubusercontent.com/ekosupry/CONFIG/main/personalads.yaml"
+#Belanja
+  Market:
+    type: http
+    behavior: classical
+    path: "./rule_provider/marketplace.yaml"
+    url: "https://raw.githubusercontent.com/ekosupry/CONFIG/main/marketplace.yaml"
+  Bukalapak:
+    type: http
+    behavior: classical
+    path: "./rule_provider/bukalapak.yaml"
+    url: "https://raw.githubusercontent.com/ekosupry/CONFIG/main/bukalapak.yaml"
+  Tokopedia:
+    type: http
+    behavior: classical
+    path: "./rule_provider/tokopedia.yaml"
+    url: "https://raw.githubusercontent.com/ekosupry/CONFIG/main/tokopedia.yaml"
+  Shopee:
+    type: http
+    behavior: classical
+    path: "./rule_provider/shopee.yaml"
+    url: "https://raw.githubusercontent.com/ekosupry/CONFIG/main/shopee.yaml"
+  Speed:
+    type: http
+    behavior: classical
+    path: "./rule_provider/speed.yaml"
+    url: "https://raw.githubusercontent.com/ekosupry/CONFIG/main/speed.yaml"
+  Judol:
+    type: http
+    behavior: classical
+    path: "./rule_provider/Judol.yaml"
+    url: "https://raw.githubusercontent.com/ekosupry/CONFIG/main/Judi_Online.yaml"
+# ================= RULES  ==================
+rules:
+- IP-CIDR,198.18.0.1/16,REJECT,no-resolve
+- RULE-SET,Sosmed,SOSMED
+- RULE-SET,Market,MARKETPLACE
+- RULE-SET,Bukalapak,MARKETPLACE
+- RULE-SET,Tokopedia,MARKETPLACE
+- RULE-SET,Shopee,MARKETPLACE
+- RULE-SET,Nonton,STREAMING
+- RULE-SET,Indo,AKUN BANK
+- RULE-SET,Bank,AKUN BANK
+- RULE-SET,Portgames,PORT GAME
+- RULE-SET,Gaming,RUANG GAME
+- RULE-SET,Game-TCP,RUANG GAME
+- RULE-SET,WA,WHATSAPP
+- RULE-SET,Facebook,FACEBOOK
+- RULE-SET,Personalads,IKLAN
+- RULE-SET,Basicads,IKLAN
+- RULE-SET,18+,IKLAN
+- RULE-SET,Nsfw,IKLAN
+- RULE-SET,YouTube,YOUTUBE
+- RULE-SET,Speed,Global✅
+- RULE-SET,Zero,AKUN BANK
+- RULE-SET,Judol,IKLAN
+# Local Area Network
+- IP-CIDR,192.168.0.0/16,DIRECT
+- IP-CIDR,10.0.0.0/8,DIRECT
+- IP-CIDR,172.16.0.0/12,DIRECT
+- IP-CIDR,127.0.0.0/8,DIRECT
+- IP-CIDR,100.64.0.0/10,DIRECT
+# DNSPod Public DNS+
+- IP-CIDR,119.28.28.28/32,DIRECT,no-resolve
+# GeoIP China
+- GEOIP,CN,DIRECT
+#--------------------------------------
+- MATCH,Global✅
+#--------------------------------------
