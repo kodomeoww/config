@@ -574,7 +574,7 @@ proxies:
     cipher: auto
     tls: true
     skip-cert-verify: true
-    servername: sg-alibaba.tingkehvpn.my.id
+    servername: sg3.socifiles.com
     network: ws
     ws-opts:
       path: /vlesscf
